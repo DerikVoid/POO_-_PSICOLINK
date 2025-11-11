@@ -87,6 +87,7 @@ public class Pessoa {
 			if(esc_2.equalsIgnoreCase("sim")) {
 				for(String visualizacao : mensagens) {
 					System.out.println("..." + visualizacao);
+					scanner.close();
 				}
 			}
 		}
