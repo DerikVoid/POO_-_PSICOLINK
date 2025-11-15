@@ -3,10 +3,22 @@ import java.util.Scanner;
 
 public class Empresa {
 	//Atributos
-	String nome_emp;
+	
+	static String nome_emp;
 	String cnpj_emp;
 	String email_emp;
 	String senha_emp;
+	
+	private static Empresa empresa_criada;
+
+	public static Empresa getEmpresa_criada() {
+	    return empresa_criada;
+	}
+
+	public static void setEmpresa_criada(Empresa empresa_criada) {
+	    Empresa.empresa_criada = empresa_criada;
+	}
+
 	
 	//Construtor
 	public Empresa(String nome_emp, String cnpj_emp, String email_emp, String senha_emp) {
@@ -16,7 +28,7 @@ public class Empresa {
 		this.senha_emp = senha_emp;
 	}
 
-	public String getNome_emp() {
+	public static String getNome_emp() {
 		return nome_emp;
 	}
 
@@ -53,7 +65,7 @@ public class Empresa {
 	
 	//Criar empresa e com o nome dela colocar no método abaixo e so puxar este método de crição no main
 	
-	public static void CriacaoEmpresa() {
+	public static Empresa CriacaoEmpresa() {
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Que bom você estar uyilizando nosso sistema para auxiliar na organização de sua empresa! /n"
 				+ "Ficamos muito felizes com isto. /n"
@@ -72,7 +84,8 @@ public class Empresa {
 		System.out.println("E a senha oficial da empresa: ");
 		String senha_emp = scan.nextLine();
 		
-		Empresa empresa1 = new Empresa(nome_emp, cnpj_emp, email_emp, senha_emp);
+		//Desta forma ela é armazenada a empresa q for criada pelo usuário
+		empresa_criada = new Empresa(nome_emp, cnpj_emp, email_emp, senha_emp);
 		
 	}
 	
@@ -91,12 +104,12 @@ public class Empresa {
 	}
 	
 	//Criação de dados de psicologo
-	public static void CD /*Criação de Dados*/(Psicologo psicologo, Pessoa pessoa) {
+	public static void CD /*Criação de Dados*/(Psicologo psicologo) {
 		//Pegar o email do psicologo de seus atributos e com ele colocar neste formato = "nome@nomedaempresa.com"
 		//È preciso criar uma empresa generica caso uma empresa não seja criada para assim o método getNome_emp funcionar
-		String email_alt =  psicologo.getNome() + "@" + getNome_emp() + ".com";
+		String email_alt =  psicologo.getNome() + "@" + Empresa.getNome_emp() + ".com";
 				
-		int senha_alt = pessoa.getCpf();
+		int senha_alt = psicologo.getCpf();
 		
 	}
 	
