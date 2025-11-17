@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Empresa {
 	//Atributos
 	
-	static String nome_emp;
+	private static String nome_emp;
 	String cnpj_emp;
 	String email_emp;
 	String senha_emp;
@@ -22,7 +22,7 @@ public class Empresa {
 	
 	//Construtor
 	public Empresa(String nome_emp, String cnpj_emp, String email_emp, String senha_emp) {
-		this.nome_emp = nome_emp;
+		Empresa.nome_emp = nome_emp;
 		this.cnpj_emp = cnpj_emp;
 		this.email_emp = email_emp;
 		this.senha_emp = senha_emp;
@@ -32,8 +32,8 @@ public class Empresa {
 		return nome_emp;
 	}
 
-	public void setNome_emp(String nome_emp) {
-		this.nome_emp = nome_emp;
+	public static void setNome_emp(String nome_emp) {
+		Empresa.nome_emp = nome_emp;
 	}
 
 	public String getCnpj() {
@@ -67,9 +67,9 @@ public class Empresa {
 	
 	public static Empresa CriacaoEmpresa() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Que bom você estar uyilizando nosso sistema para auxiliar na organização de sua empresa! /n"
-				+ "Ficamos muito felizes com isto. /n"
-				+ "Para sua utilização é necessário alguns dados de sua corporação, ok? /n"
+		System.out.println("Que bom você estar utilizando nosso sistema para auxiliar na organização de sua empresa! \n"
+				+ "Ficamos muito felizes com isto. \n"
+				+ "Para sua utilização é necessário alguns dados de sua corporação, ok? \n"
 				+ "Digite respectivamente abaixo:");
 		
 		System.out.println("Nome da empresa: ");
@@ -86,32 +86,25 @@ public class Empresa {
 		
 		//Desta forma ela é armazenada a empresa q for criada pelo usuário
 		empresa_criada = new Empresa(nome_emp, cnpj_emp, email_emp, senha_emp);
+		return empresa_criada;
 		
 	}
 	
 	//Criação de empresa Genérica caso uma ainda não tenha sido feita
-	// void foi trocado por Empresa pois ele o void não retorna nada e Empresa era p tipo de retorno
-	public Empresa EmpresaGenerica() {
+	// void foi trocado por Empresa pois ele o void não retorna nada e Empresa era o tipo de retorno
+	public static Empresa EmpresaGenerica() {
 		Empresa empresa_g = new Empresa("PsicoInsight", "38.514.927/0001-62", "corporativo@psicinsight.com", "PsiC0rp!2025");
 		return empresa_g;
 	}
 	
 	
-	Empresa empresa_generica;
-	
-	if(empresa_generica == null) {
-		Empresa.CriacaoEmpresa();
-	}
-	
 	//Criação de dados de psicologo
-	public static void CD /*Criação de Dados*/(Psicologo psicologo) {
+	public static String CD /*Criação de Dados*/(Psicologo psicologo) {
 		//Pegar o email do psicologo de seus atributos e com ele colocar neste formato = "nome@nomedaempresa.com"
 		//È preciso criar uma empresa generica caso uma empresa não seja criada para assim o método getNome_emp funcionar
-		String email_alt =  psicologo.getNome() + "@" + Empresa.getNome_emp() + ".com";
-				
-		int senha_alt = psicologo.getCpf();
+		String email_alt =  psicologo.getNome() + "@gmail" + Empresa.getNome_emp();
+		return email_alt;
 		
 	}
-	
-	
-}
+  }
+

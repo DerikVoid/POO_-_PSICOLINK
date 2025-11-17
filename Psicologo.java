@@ -7,11 +7,15 @@ public class Psicologo extends Pessoa{
 		
 	//Construtor
 
-	public Psicologo(String nome, int idade, String senha, String email, int cpf, String sexo) {
+	public Psicologo(String nome, int idade, String senha, String email, String cpf, String sexo) {
 		super(nome, idade, senha, email, cpf, sexo);
 		//this.registro = registro;
+		
 	}
 	
+	public void setNome(String nome) {
+		this.nome = nome_p;
+	}
 	
 
 	//Métodos anotacao

@@ -11,7 +11,7 @@ public class Pessoa {
 	int idade;
 	String senha;
 	String email;
-	int cpf;
+	String cpf;
 	String sexo;
 	//Irá guardar todas as mensagens que uma lista utilizar nesta classe dentro da variável mensagens
 	private ArrayList<String> mensagens = new ArrayList<>();
@@ -19,12 +19,12 @@ public class Pessoa {
 	
 	
 	//Construtor
-	public Pessoa(String nome,int idade, String senha, String email,int cpf,String sexo) {
+	public Pessoa(String nome,int idade, String senha, String email,String cpf,String sexo) {
 		this.nome = nome;
 		this.idade = idade;
 		this.senha = senha;
 		this.email = email;
-		this.id = cpf;
+		this.cpf = cpf;
 		this.sexo = sexo;
 	}
 	
@@ -55,10 +55,10 @@ public class Pessoa {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setId(int cpf) {
+	public void setId(String cpf) {
 		this.cpf = cpf;
 	}
 	public String getSexo() {
