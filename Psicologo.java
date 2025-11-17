@@ -13,9 +13,7 @@ public class Psicologo extends Pessoa{
 		
 	}
 	
-	public void setNome(String nome) {
-		this.nome = nome_p;
-	}
+	
 	
 
 	//Métodos anotacao

@@ -13,6 +13,7 @@ public class Pessoa {
 	String email;
 	String cpf;
 	String sexo;
+	
 	//Irá guardar todas as mensagens que uma lista utilizar nesta classe dentro da variável mensagens
 	private ArrayList<String> mensagens = new ArrayList<>();
 

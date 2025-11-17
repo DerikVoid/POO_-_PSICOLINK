@@ -12,7 +12,7 @@ public class Cliente extends Pessoa {
 	
 	
 	//Atributos de herança da classe mãe Pessoa
-	public Cliente(String nome, int idade, String senha, String email, int cpf, String sexo) {
+	public Cliente(String nome, int idade, String senha, String email, String cpf, String sexo) {
 		super(nome, idade, senha, email, cpf, sexo);
 		
 	}
