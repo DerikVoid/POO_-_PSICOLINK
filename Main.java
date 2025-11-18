@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) {
+		Cliente pessoa = new Cliente("Carlos", 29, "23", "c@c", "123", "M");
+		Psicologo psicologo = new Psicologo("Joao", 47, "33", "e@e", "321", "M");
+		pessoa.avaliarPsicologo(psicologo, 5);
+		pessoa.avaliarPsicologo(psicologo, 7);
+		System.out.println("Avaliação média do psicológo:"+ psicologo.getAvaliacaoMedia());
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Seja bem-vindo ao Psicolink!! \n " + "qual o seu formato de entrada no sistema: \n"
 				+ "[1] Cliente \n" + "[2] Psicologo \n" + "[3] Empresa");
@@ -40,8 +45,20 @@ public class Main {
 			System.out.println("[1] Meu diário pessoal. \n"
 					+ "[2] Avaliar psicólogo \n"
 					+ "[3] Consultar mensalidade do consultório");
-			
-			
+			int esc_p = scan.nextInt();
+			scan.nextLine();
+			if(esc_p == 1) {
+				Psicologo.Anotacao_p(); 
+			}
+				
+		
+			if (esc_p == 2) {
+				System.out.println("Faça sua anotação:");
+				int test_p = scan.nextInt();
+				scan.nextLine();
+				//Cliente.receberAvaliacao(test_p); 
+				
+			}
 		}
 
 		// Psicologo
@@ -83,8 +100,23 @@ public class Main {
 			psicologo1.setEmail(email_gerado);
 
 			System.out.println("Seu email e senha da empresa: " + email_gerado + "  " + psicologo1.getCpf());
-
-		}
+			
+			System.out.println("OK! tudo pronto " + psicologo1.getNome());
+			System.out.println("Deseja utilizar alguma função?");
+			System.out.println("[1] Meu diário pessoal. \n"
+					+ "[2] Ver suas avaliações. \n"
+					+ "[3] Consultar mensalidade do consultório");
+			int esc_p = scan.nextInt();
+			scan.nextLine();
+			if(esc_p == 1) {
+				Psicologo.Anotacao_p(); 
+			}
+				
+			
+			
+			
+			
+	}
 
 		// Empresa
 		if (entrada == 3) {
