@@ -1,16 +1,35 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Cliente extends Pessoa {
 
 	// Atributos
 	//Ideias de atributos diferenste de Psicologo
+	String avaliacao;
 	Double mensalidade;
 	String agendamento;
+		private static Cliente nota_registrar;
+		public Cliente getnota_registrar() {
+		return nota_registrar;
+		}
+		public void setnota_registrar (Cliente nota_registrar) {
+		Cliente.nota_registrar = nota_registrar;
+		}
+	
+	// private static Cliente Avaliacao_registrar;
+    //public static Cliente getAvaliacao_registrar() {
+		//return Avaliacao_registrar;
+	//}
+	//public static void setAvaliacao_registrar(Cliente Avaliacao_registrar) {
+		//Cliente.Avaliacao_registrar = Avaliacao_registrar;
+	//}
+    private static ArrayList<Integer> avaliacoes = new ArrayList<>();
 
-	// Atributos de herança da classe mãe Pessoa
+	
 	public Cliente(String nome, int idade, String senha, String email, String cpf, String sexo) {
 		super(nome, idade, senha, email, cpf, sexo);
 
@@ -36,14 +55,11 @@ public class Cliente extends Pessoa {
 
 	}
 
-	// Método avaliar psicologo
-	public void avaliarPsicologo() {
-		/*
-		 * Ideias: -Pegar a classe do psicologo e atribuir a ele uma nota de 1 a 10
-		 * -Construir um atributo chamado de avaliacao dentro da classe psicologo e
-		 * modifica-lo com o set e o get aqui dentro
-		 */
-
-	}
+    // MÉTODO NOVO (pedido): registrar avaliação
+    public static void avaliarPsicologo(Psicologo p, int avaliacao) {
+        p.avaliacoes.add(avaliacao);
+        System.out.println("Avaliação adicionada");
+        
+    }
 
 }
