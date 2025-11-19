@@ -43,9 +43,6 @@ public class Psicologo extends Pessoa {
 	    }
 
 	
-
-    
-	
 	// Atributos de herança da classe mãe Pessoa
     public Psicologo(String nome, int idade, String senha, String email, String cpf, String sexo) {
         super(nome, idade, senha, email, cpf, sexo);
@@ -82,7 +79,7 @@ public class Psicologo extends Pessoa {
     }
 
     //Mostrar todas as anotações
-    public void mostrarAnotacoes() {
+    public static void mostrarAnotacoes() {
         //System.out.println("\n=== ANOTAÇÕES DO PSICÓLOGO ===");
 
         if (anotacoesPacientes.isEmpty()) {
@@ -126,15 +123,9 @@ public class Psicologo extends Pessoa {
     	int sessoes = scan.nextInt();
     	this.setSessoes(sessoes);
     	}
-    	
-    
-
     
 }    
-    
-    
-   
-    
+ 
     // (opcional) Média das avaliações
     //public static double MediaAvaliacoes(Cliente nota_registrar) {
         //if (Cliente.get(nota_registrar)) return 0;
