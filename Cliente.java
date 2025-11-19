@@ -25,6 +25,7 @@ public class Cliente extends Pessoa {
 	
 	//Mais um aytr
 	private static ArrayList<Integer> avaliacoes = new ArrayList<>();
+	private static Map<String, ArrayList<String>> Diariocliente = new HashMap<>();
 
 	// Atributos de herança da classe mãe Pessoa
 
@@ -32,9 +33,50 @@ public class Cliente extends Pessoa {
 		super(nome, idade, senha, email, cpf, sexo);
 	}
 
-	public void enviarAnotacao_c() {
+	 public static void Anotacao_c() {
+	        Scanner scan = new Scanner(System.in);
 
-	}
+	        System.out.println("\n SISTEMA DE ANOTAÇÕES/DIÁRIO DO CLIENTE ");
+
+	        System.out.print("Digite a data da Anotação: ");
+	        String nomePaciente = scan.nextLine();
+
+	        Diariocliente.putIfAbsent(nomePaciente, new ArrayList<>());
+	        ArrayList<String> lista = Diariocliente.get(nomePaciente);
+
+	        while (true) {
+	            System.out.print("Digite sobre o que está pensando: ");
+	            String anotacao = scan.nextLine();
+	            lista.add(anotacao);
+
+	            System.out.print("Deseja adicionar outra linha? (S/N): ");
+	            String esc = scan.nextLine();
+	            
+	            if (esc.equalsIgnoreCase("N")) {
+	                break;
+	            }
+	        }
+
+	        System.out.println("\nAnotações salvas com sucesso!");
+	        System.out.println("\n");
+	    }
+
+	    //Mostrar todas as anotações
+	    public static void mostrarAnotacoes_c() {
+	        //System.out.println("\n=== ANOTAÇÕES DO CLIENTE ===");
+
+	        if (Diariocliente.isEmpty()) {
+	            System.out.println("Nenhuma anotação registrada.");
+	            return;
+	        }
+
+	        for (String cliente : Diariocliente.keySet()) {
+	            System.out.println("\nDiário: " + cliente);
+	            for (String nota : Diariocliente.get(cliente)) 
+	                System.out.println("- " + nota);
+	            }
+	            
+	        }
 
 	// Método avaliar psicologo
 	public void avaliarPsicologo() {
@@ -49,7 +91,6 @@ public class Cliente extends Pessoa {
 	// MÉTODO NOVO (pedido): registrar avaliação
 	public static void avaliarPsicologo(Psicologo p, int avaliacao) {
 		p.avaliacoes.add(avaliacao);
-		System.out.println("Avaliação adicionada");
 
 	}
 	
